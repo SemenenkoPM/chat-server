@@ -1,0 +1,9 @@
+ru/itsjava/services/Observer.class
+ru/itsjava/MyApplication.class
+ru/itsjava/domain/User.class
+ru/itsjava/dao/UserDaoImpl.class
+ru/itsjava/services/Server.class
+ru/itsjava/services/Observable.class
+ru/itsjava/dao/UserDao.class
+ru/itsjava/services/ClientRunnable.class
+ru/itsjava/services/ServerImpl.class
