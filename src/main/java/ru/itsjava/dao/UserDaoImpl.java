@@ -5,12 +5,11 @@ import ru.itsjava.domain.User;
 import java.sql.*;
 import java.util.NoSuchElementException;
 
-public class UserDaoImpl implements UserDao{
+public class UserDaoImpl implements UserDao {
 
     private final static String DB_URL = "";
     private final static String DB_LOGIN = "";
     private final static String DB_PASSWORD = "";
-
 
 
     @Override
@@ -30,11 +29,22 @@ public class UserDaoImpl implements UserDao{
 //            }
 
 
-
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
 
         throw new NoSuchElementException("User not found");
     }
+
+    @Override
+    public void createNewUser(String login, String password) {
+        try (Connection connection = DriverManager.getConnection(DB_URL, DB_LOGIN, DB_PASSWORD);
+             Statement statement = connection.createStatement()) {
+            statement.executeUpdate("INSERT INTO my_schema_dec_2020.users (name, password) VALUES ('" + login + "', '" + password + "')");
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
 }
+

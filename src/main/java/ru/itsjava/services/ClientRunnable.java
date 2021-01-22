@@ -20,18 +20,28 @@ public class ClientRunnable implements Runnable, Observer {
     @SneakyThrows
     @Override
     public void run() {
-
-        BufferedReader socketReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-
         while (true) {
-            if (autorization(socketReader)) {
-                server.addObserver(this);
+        BufferedReader socketReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        String socketInputMessage;
+        String numMenu = socketReader.readLine();
 
-                String socketInputMessage;
-                while ((socketInputMessage = socketReader.readLine()) != null) {
-                    System.out.println(socketInputMessage);
-                    server.notifyObservers(user.getName() + ":" + socketInputMessage);
+            if (numMenu.equals("1")) {
+                if (autorization(socketReader)) {
+                    server.addObserver(this);
+
+
+                    while ((socketInputMessage = socketReader.readLine()) != null) {
+                        System.out.println(socketInputMessage);
+                        server.notifyObservers(user.getName() + ":" + socketInputMessage);
+                    }
                 }
+            }
+            if (numMenu.equals("2")) {
+                String socketInputLogin = socketReader.readLine();
+                String socketInputPassword = socketReader.readLine();
+
+                userDao.createNewUser(socketInputLogin,socketInputPassword);
+
             }
         }
     }
