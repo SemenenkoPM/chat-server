@@ -23,13 +23,15 @@ public class ClientRunnable implements Runnable, Observer {
 
         BufferedReader socketReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-        if (autorization(socketReader)) {
-            server.addObserver(this);
+        while (true) {
+            if (autorization(socketReader)) {
+                server.addObserver(this);
 
-            String socketInputMessage;
-            while ((socketInputMessage = socketReader.readLine()) != null) {
-                System.out.println(socketInputMessage);
-                server.notifyObservers(user.getName() + ":" + socketInputMessage);
+                String socketInputMessage;
+                while ((socketInputMessage = socketReader.readLine()) != null) {
+                    System.out.println(socketInputMessage);
+                    server.notifyObservers(user.getName() + ":" + socketInputMessage);
+                }
             }
         }
     }
@@ -45,7 +47,7 @@ public class ClientRunnable implements Runnable, Observer {
             notify("Вы успешно авторизовались");
             return true;
         }
-        System.out.println("Почему сюда не доходит программа?");
+        notify("Неправильно введен пароль");
         return false;
     }
 

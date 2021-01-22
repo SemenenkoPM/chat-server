@@ -19,8 +19,8 @@ public class MyApplication {
 //        System.out.println(userDao.findByName("U1"));
 //        System.out.println(userDao.findByName("U2"));
 
-//        String DB_URL = "jdbc:mysql://localhost:3306/my_schema_dec_2020?serverTimezone=UTC";
-//        String DB_LOGIN = "root";
+//        String DB_URL = "";
+//        String DB_LOGIN = "";
 //        String DB_PASSWORD = "";
 //
 //        try (Connection connection = DriverManager.getConnection(DB_URL, DB_LOGIN, DB_PASSWORD);

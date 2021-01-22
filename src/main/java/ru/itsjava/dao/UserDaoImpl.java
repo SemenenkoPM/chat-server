@@ -12,6 +12,7 @@ public class UserDaoImpl implements UserDao{
     private final static String DB_PASSWORD = "";
 
 
+
     @Override
     public User findByName(String name) {
 
