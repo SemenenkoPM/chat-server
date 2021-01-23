@@ -7,8 +7,8 @@ import java.util.NoSuchElementException;
 
 public class UserDaoImpl implements UserDao {
 
-    private final static String DB_URL = "";
-    private final static String DB_LOGIN = "";
+    private final static String DB_URL = "jdbc:mysql://localhost:3306/my_schema_dec_2020?serverTimezone=UTC";
+    private final static String DB_LOGIN = "root";
     private final static String DB_PASSWORD = "";
 
 
