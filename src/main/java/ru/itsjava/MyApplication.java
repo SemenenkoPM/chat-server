@@ -1,21 +1,16 @@
 package ru.itsjava;
 
 
-import lombok.extern.flogger.Flogger;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
+
 import ru.itsjava.services.ServerImpl;
 
-import java.sql.*;
+
 
 
 public class MyApplication {
-    private final static int PORT = 8080;
-    private static final Logger logger = LogManager.getLogger("HelloWorld");
-
 
     public static void main(String[] args) {
-        logger.info("Hello, World!");
         new ServerImpl().start();
 //        UserDao userDao = new UserDaoImpl();
 //        System.out.println(userDao.findByName("U1"));
